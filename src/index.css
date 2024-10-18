@@ -1,3 +1,8 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,49 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+@keyframes bubble {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translate(30vw, -10vh); /* Move diagonally */
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-20vw, 20vh); /* Move in the opposite diagonal */
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate(20vw, -30vh); /* Move again */
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-10vw, 30vh); /* Final float */
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Bounces up a bit */
+  }
+}
+
+.animate-bubble {
+  animation: bubble 20s infinite ease-in-out, bounce 3s infinite ease-in-out; /* Combine floating and bouncing */
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn ease-in 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
